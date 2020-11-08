@@ -1,0 +1,10 @@
+{% extends "product_register/base.html" %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<form action="" method="post" autocomplete="off">
+    {% csrf_token %}
+    {{form|crispy}}
+    <button type="submit" class="btn btn-success"><i class="far fa-save"></i> Submit</button>
+</form>
+{% endblock content %}
