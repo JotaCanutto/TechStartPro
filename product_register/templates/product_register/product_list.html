@@ -1,5 +1,45 @@
-{% extends "product_register/base.html" %}
-
-{% block content %}
-<p>Lista de Produtos</p>
+{% extends "product_register/base.html" %} {% block content %}
+<table class="table table-borderless">
+  <thead class="border-bottom font-weight-bold">
+    <tr>
+      <td>Nome</td>
+      <td>Descrição</td>
+      <td>Preço</td>
+      <td>Categoria</td>
+      <td>
+        <a href="{% url 'product_insert'%}" class="btn btn-outline-success">
+          <i class="fas fa-plus"></i> Add Product
+        </a> 
+        <a href="{% url 'category_insert'%}" class="btn btn-outline-success">
+            <i class="fas fa-plus"></i> Categorias
+        </a>
+      </td>
+    </tr>
+  </thead>
+  <tbody>
+    {% for product in product_list %}
+    <tr>
+      <td>{{product.name}}</td>
+      <td>{{product.description}}</td>
+      <td>{{product.price}}</td>
+      <td>
+        {% for category in product.category.all %} 
+        {{category.name}}, 
+        {% endfor%}
+      </td>
+      <td>
+        <a href="{% url 'product_update' product.id %}" class="btn text-secondary px-0">
+          <i class="far fa-edit fa-lg"></i>
+        </a>
+        <form action="{% url 'product_delete' product.id %}" method="post" class="d-inline">
+            {% csrf_token %}
+            <button type="submit" class="btn">
+                <i class="far fa-trash-alt fa-lg text-danger float-right"></i>
+            </button>
+        </form>
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
 {% endblock content %}
