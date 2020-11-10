@@ -82,7 +82,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'ProductDB',
         'USER': 'postgres',
-        'PASSWORD': 'Postgr&s654',
+        'PASSWORD': 'postgres',
         'HOST': 'localhost'
     }
 }
