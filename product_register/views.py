@@ -18,15 +18,19 @@ def product_form(request, product_id=0):
     """Formulário de Cadastro de Produtos"""
     if request.method == "GET":
         if product_id == 0:
+            #GET sem id = insert
             form = ProductForm()
         else:
+            #GET com id = update
             product = Product.objects.get(pk=product_id)
             form = ProductForm(instance=product)
         return render(request, "product_register/product_form.html", {'form': form})
     else:
         if product_id == 0:
+            #POST sem id = insert
             form = ProductForm(request.POST)
         else:
+            #POST com id = update
             product = Product.objects.get(pk=product_id)
             form = ProductForm(request.POST, instance=product)
         if form.is_valid():
