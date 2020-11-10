@@ -7,7 +7,7 @@ Projeto Django para implementação de operações CRUD utilizando PostgreSQL.
 * Sistema Operacional: Windows 10
 * IDE: Visual Studio Code
 * Database: PostgreSQL
-* Bibliotecas: 
+* Bibliotecas: Django, django-crispy-forms, mixer, psycopg2, pylint, pylint-django, pytest, pytest-django.
 
 # Instalação de Dependências
 
