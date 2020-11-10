@@ -24,7 +24,7 @@
       <td>{{product.price}}</td>
       <td>
         {% for category in product.category.all %} 
-        {{category.name}}, 
+        <div>{{category.name}}</div>
         {% endfor%}
       </td>
       <td>

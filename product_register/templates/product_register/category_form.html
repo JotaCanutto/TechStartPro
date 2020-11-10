@@ -1,5 +1,20 @@
 {% extends "product_register/base.html" %}
 
 {% block content %}
-<p>Formulário de Categorias</p>
+<form action="" method="post" autocomplete="off" enctype="multipart/form-data">
+    {% csrf_token %}
+    <label for="file">Upload a file: </label>
+    <input type="file" id="file" name="file">
+    <div class="row">
+        <div class="col-md-8">
+            <button type="submit" class="btn btn-success btn-block btn-lg"><i class="far fa-save"></i> 
+            Submit</button>
+        </div>
+        <div class="col-md-4">
+            <a href="{% url 'product_list' %}" class="btn btn-secondary btn-block btn-lg">
+                <i class="fas fa-stream"></i> Lista de Produtos
+            </a>
+        </div>
+    </div>
+</form>
 {% endblock content %}
